@@ -28,24 +28,8 @@ body {
     align-items: center;
 }
 
-a {
-    background-color: #1b2344;
-    border-radius: 5px;
-    color: white;
-    display: inline-block;
-    text-decoration: none;
-    rotate: 0deg;
-    size: 1em;
-    border-color: rgba(75, 147, 255, 0);
-    transition: all 0.3s var(--ease-n-bounce);
-}
 
-a:hover {
-    rotate: -5deg;
-    size: 2em;
-    border-color: rgb(75, 147, 255);
-    transition: all 0.3s var(--ease-n-bounce);
-}
+
 
 button {
     display: inline-block;
@@ -64,6 +48,44 @@ button {
     rotate: 0deg;
     transition: all 0.3s var(--ease-n-bounce);
     animation: floatIn 0.5s ease-out; /* Apply the float-in animation */
+}
+
+button:hover {
+    background-color: rgb(160, 160, 160);
+    rotate: 5deg;
+    color: black;
+    transition: all 0.3s var(--ease-n-bounce);
+}
+
+li{
+    font-size: larger;
+    font-weight: 500;
+}
+
+.linkBttn{
+    display: inline-block;
+    padding: 10px 20px;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    border-radius: 50px;
+    border-color: rgba(0,0,0,0);
+    background-color: rgb(49, 49, 49);
+    color: rgb(214, 214, 214);
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+    font-size: 1.2em;
+    text-align: center;
+    text-decoration: none;
+    rotate: 0deg;
+    transition: all 0.3s var(--ease-n-bounce);
+    animation: floatIn 0.5s ease-out; /* Apply the float-in animation */
+}
+.linkBttn:hover{
+    background-color: rgb(75, 192, 238);
+    rotate: 5deg;
+    color: black;
+    transition: all 0.3s var(--ease-n-bounce);
 }
 
 /*divs*/
@@ -128,12 +150,104 @@ button {
     overflow-wrap: break-word;
     font-weight: 500;
 }
+.mainPcentered{
+    text-align: center;
+    text-justify: auto;
+    font-size: 1.5em;
+    overflow-wrap: break-word;
+    font-weight: 450;
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+
+.box{
+    justify-content: center; /* Center horizontally */
+    align-items: center;
+    margin-left: 10px;
+    margin-right: 10px; /* Center vertically */
+    text-align: center;
+    /*background: linear-gradient(45deg,#bcd9ff,#bef2ff);*/
+    border-radius: 10px;
+    align-self: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+
 
 .sperator{
     width: 70%;
     margin: auto;
     background-color: black;
     height: 2px;
+}
+
+.list{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    text-justify: center;
+    padding: 10px;
+    margin: auto;
+    width: 50%;
+    gap: 10px;
+}
+
+.list-can{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    text-justify: center;
+    padding: 10px;
+    margin: auto;
+    width: 70%;
+    gap: 10px;
+    background-color: rgba(151, 247, 156, 0.322);
+    border: #2bff00;
+    border-radius: 10px;
+    border-width: 2px;
+}
+
+.list-try{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    text-justify: center;
+    padding: 10px;
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 70%;
+    gap: 10px;
+    background-color: rgba(151, 201, 247, 0.322);
+    border: #00d9ff;
+    border-radius: 10px;
+    border-width: 2px;
+}
+
+.list-cannot{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    text-justify: center;
+    padding: 10px;
+    margin: auto;
+    width: 70%;
+    gap: 10px;
+    background-color: rgba(247, 151, 151, 0.322);
+    border: #ff0000;
+    border-radius: 10px;
+    border-width: 2px;
 }
 /*id specific*/
 
@@ -176,6 +290,13 @@ button {
     width: 300px; /* Sets a specific width */
 }
 
+#logo {
+    max-width: 100%; /* Ensures the image doesn't exceed the width of its container */
+    height: auto; /* Maintains the aspect ratio */
+    width: 100px; /* Sets a specific width */
+}
+
+
 #cursor-trail {
     position: fixed;
     top: 0;
@@ -184,7 +305,52 @@ button {
     z-index: 10000;
 }
 
+/*socials*/
 
+
+#x:hover {
+    background-color: rgb(75, 192, 238);
+    rotate: 5deg;
+    color: rgb(255, 255, 255);
+    transition: all 0.3s var(--ease-n-bounce);
+}
+
+
+
+#bsk:hover {
+    background-color: rgb(46, 75, 241);
+    rotate: 5deg;
+    color: rgb(255, 255, 255);
+    transition: all 0.3s var(--ease-n-bounce);
+}
+
+#ig:hover {
+    background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D);
+    rotate: 5deg;
+    color: rgb(255, 255, 255);
+    transition: all 0.3s var(--ease-n-bounce);
+}
+
+#rblx:hover {
+    background-color: rgb(0, 0, 0);
+    rotate: 5deg;
+    color: rgb(255, 255, 255);
+    transition: all 0.3s var(--ease-n-bounce);
+}
+
+#kofi {
+    background: linear-gradient(45deg, #FF5E3A, #FF2D55, #FF005A, #FF00A8, #FF00EB, #7500EB);
+    rotate: 0deg;
+    color: rgb(255, 255, 255);
+    transition: all 0.3s var(--ease-n-bounce);
+}
+
+#kofi:hover {
+    background: linear-gradient(-45deg, #FF5E3A, #FF2D55, #FF005A, #FF00A8, #FF00EB, #7500EB);
+    rotate: 5deg;
+    color: rgb(255, 255, 255);
+    transition: all 0.3s var(--ease-n-bounce);
+}
 
 .trail {
     position: absolute;

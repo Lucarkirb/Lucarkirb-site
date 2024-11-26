@@ -33,3 +33,6 @@ document.addEventListener('DOMContentLoaded', () => {
     animateTrail();
 });
 
+function goToPage(page) {
+    window.location.href = page;
+}
