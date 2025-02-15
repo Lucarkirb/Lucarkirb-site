@@ -20,6 +20,16 @@
     }
 }
 
+/* Define the animation */
+@keyframes scrollBackground {
+    from {
+        transform: translate(0, 0);
+    }
+    to {
+        transform: translate(-50%, -50%);
+    }
+}
+
 /*elements*/
 
 body {
@@ -57,9 +67,31 @@ button:hover {
     transition: all 0.3s var(--ease-n-bounce);
 }
 
+th{
+    padding: 10px;
+    border-bottom: 1px solid black;
+}
+
+td{
+    padding: 10px;
+    border-bottom: 1px solid black;
+}
+
 li{
     font-size: larger;
     font-weight: 500;
+}
+
+table{
+    border-collapse: collapse;
+    width: 70%;
+    font-size: 1.5em;
+    margin: auto;
+}
+
+.reallySmall{
+    font-weight: 400;
+    font-size: .7em;
 }
 
 .linkBttn{
@@ -249,6 +281,57 @@ li{
     border-radius: 10px;
     border-width: 2px;
 }
+.side-by-side{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    margin: auto;
+    width: 50%;
+    gap: 10px;
+}
+
+.sidebar{
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    align-items: left;
+    text-align: left;
+    background-color: #424242;
+    padding: 10px;
+    margin: auto;
+    width: 15%;
+    gap: 10px;
+    border-radius: 0;
+}
+
+.normal{
+    width: 85%;
+}
+
+.clickableTextButton{
+    border-radius: 0;
+    background-color: rgba(0,0,0,0);
+    color: rgb(214, 214, 214);
+    font-family: "Montserrat", sans-serif;
+    text-align: left;
+    font-size: 14px;
+    width: 100%;
+}
+
+/* Create the animated background */
+.background {
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    background: url('Images/checker.png') repeat;
+    background-size: 30%;
+    animation: scrollBackground 10s linear infinite;
+    z-index: -1;
+    background-attachment: fixed;
+}
+
+
 /*id specific*/
 
 #socials:hover {
@@ -351,6 +434,7 @@ li{
     color: rgb(255, 255, 255);
     transition: all 0.3s var(--ease-n-bounce);
 }
+
 
 .trail {
     position: absolute;
