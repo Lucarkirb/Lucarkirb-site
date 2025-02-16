@@ -143,6 +143,9 @@ table{
     margin: 0;
 }
 
+.header text{
+    width: 100%;
+}
 .newsLetter{
     margin: 0 auto;
     font-size: 1.2em;
@@ -306,7 +309,8 @@ table{
 }
 
 .normal{
-    width: 85%;
+    width: auto;
+    height: auto;
 }
 
 .clickableTextButton{
@@ -325,7 +329,7 @@ table{
     width: 200%;
     height: 200%;
     background: url('Images/checker.png') repeat;
-    background-size: 30%;
+    background-size: 40%;
     animation: scrollBackground 10s linear infinite;
     z-index: -1;
     background-attachment: fixed;
@@ -349,6 +353,10 @@ table{
 .backtotop:hover{
     rotate: 5deg;
     transition: all 0.3s var(--ease-n-bounce);
+}
+
+.coolerlist li{
+    color:rgb(0, 18, 78)
 }
 
 /*id specific*/

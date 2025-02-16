@@ -1,3 +1,8 @@
+
+
+
+
+
 document.addEventListener('DOMContentLoaded', () => {
     const trailContainer = document.getElementById('cursor-trail');
     const trailElements = [];
@@ -57,3 +62,5 @@ function scrollToTop() {
         behavior: 'smooth'
     });// For Chrome, Firefox, IE, and Opera
 }
+
+
