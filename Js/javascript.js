@@ -3,6 +3,7 @@
 
 
 
+
 document.addEventListener('DOMContentLoaded', () => {
     const trailContainer = document.getElementById('cursor-trail');
     const trailElements = [];

@@ -13,4 +13,6 @@ class Sidebar extends HTMLElement {
         `;
     }
 }
+
+
 customElements.define('custom-sidebar', Sidebar);
