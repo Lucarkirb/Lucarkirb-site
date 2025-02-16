@@ -33,6 +33,27 @@ document.addEventListener('DOMContentLoaded', () => {
     animateTrail();
 });
 
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function() {
+    scrollFunction();
+};
+
+function scrollFunction() {
+    const backToTopBtn = document.getElementById("backToTopBtn");
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        backToTopBtn.style.display = "block";
+    } else {
+        backToTopBtn.style.display = "none";
+    }
+}
+
 function goToPage(page) {
     window.location.href = page;
+}
+
+function scrollToTop() {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });// For Chrome, Firefox, IE, and Opera
 }

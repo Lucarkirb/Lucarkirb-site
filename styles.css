@@ -331,6 +331,25 @@ table{
     background-attachment: fixed;
 }
 
+.backtotop{
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    border-radius: 50px;
+    padding: 10px 20px;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+    font-size: 1.2em;
+    text-align: center;
+    rotate: 0deg;
+    transition: all 0.3s var(--ease-n-bounce);
+    animation: floatIn 0.5s ease-out; /* Apply the float-in animation */
+}
+
+.backtotop:hover{
+    rotate: 5deg;
+    transition: all 0.3s var(--ease-n-bounce);
+}
 
 /*id specific*/
 
