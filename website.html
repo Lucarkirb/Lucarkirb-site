@@ -1,0 +1,28 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login</title>
+</head>
+<body>
+    <a href="index.html">website.html</a>
+    <br>
+    <input type="text" id="user" placeholder="User ID">
+    <br>
+    <input type="text" id="pass" placeholder="Password">
+    <br>
+    <button onclick="login()">Login</button>
+
+    <script>
+        function login() {
+            const user = document.getElementById('user').value;
+            const pass = document.getElementById('pass').value;
+            if (user === 'benis' && pass === 'youfoundme.') {
+                alert('guh.html, find him.');
+            } else {
+                alert('Authentication failed. Check if you have caps lock on. If you have trouble logging into turnitin, please consult your school IT department.');
+            }
+        }
+    </script>
+</body>
+</html>
