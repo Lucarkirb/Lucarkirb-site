@@ -122,6 +122,17 @@ table{
 
 /*divs*/
 
+.side-by-side /*put elements side by side horizontally*/
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    margin: auto;
+    width: 50%;
+    gap: 10px;
+}
+
 .sidebar {
     height: 100%;
     width:100px;
@@ -323,6 +334,25 @@ table{
     width: 100%;
 }
 
+/* Hide toggle button on desktop */
+.floating-toggle {
+    display: none;
+}
+
+.sidebar-close {
+    display: none;
+}
+
+.sidebar-header {
+    display: block;
+}
+
+.sidebar-content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
 /* Create the animated background */
 .background {
     position: absolute;
@@ -471,5 +501,343 @@ table{
     border-radius: 50%;
     pointer-events: none;
     transition: transform 0.1s, opacity 0.1s;
+}
+
+/* Mobile Responsive Design */
+@media (max-width: 768px) {
+    /* Body and general layout adjustments */
+    body {
+        font-size: 14px;
+        padding: 5px;
+    }
+    
+    /* Side-by-side layout becomes vertical on mobile */
+    .side-by-side {
+        flex-direction: column;
+        width: 95%;
+        padding: 5px;
+        gap: 5px;
+    }
+    
+    /* Floating toggle button */
+    .floating-toggle {
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        z-index: 1000;
+        background-color: #424242;
+        border: none;
+        border-radius: 50%;
+        color: white;
+        font-size: 1.2em;
+        padding: 12px;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        display: none; /* Hidden by default, shown via JS */
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        width: 50px;
+        height: 50px;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .floating-toggle:hover {
+        background-color: #555;
+        transform: scale(1.1);
+    }
+    
+    /* Sidebar adjustments for mobile */
+    .sidebar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(66, 66, 66, 0.95);
+        z-index: 999;
+        padding: 20px;
+        box-sizing: border-box;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: stretch;
+        transition: all 0.3s ease;
+        backdrop-filter: blur(5px);
+    }
+    
+    /* Sidebar header with close button */
+    .sidebar-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        margin-bottom: 20px;
+        padding-bottom: 10px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    
+    .sidebar-header h2 {
+        margin: 0;
+        font-size: 1.5em;
+        color: white;
+    }
+    
+    /* Close button styles */
+    .sidebar-close {
+        display: block;
+        background-color: rgba(255, 255, 255, 0.2);
+        border: none;
+        border-radius: 50%;
+        color: white;
+        font-size: 1.2em;
+        padding: 10px;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .sidebar-close:hover {
+        background-color: rgba(255, 255, 255, 0.3);
+        transform: scale(1.05);
+    }
+    
+    /* Sidebar content area */
+    .sidebar-content {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        align-items: stretch;
+        flex: 1;
+        padding-top: 20px;
+    }
+    
+    /* Collapsed sidebar styles - completely hidden */
+    .sidebar.collapsed {
+        display: none !important;
+    }
+    
+    /* Main content takes full width */
+    .normal {
+        width: 100%;
+        order: 1;
+        padding: 0 10px;
+    }
+    
+    /* Header scaling */
+    .header {
+        font-size: 1em;
+        padding: 10px 5px;
+    }
+    
+    .header h1 {
+        font-size: 1.8em;
+        margin: 10px 0;
+    }
+    
+    .header p {
+        font-size: 1em;
+    }
+    
+    /* Table responsiveness */
+    table {
+        width: 100%;
+        font-size: 0.9em;
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+    
+    th, td {
+        padding: 8px 4px;
+        font-size: 0.85em;
+    }
+    
+    .reallySmall {
+        font-size: 0.6em;
+        display: block;
+        margin-top: 2px;
+    }
+    
+    /* Button and link adjustments */
+    button, .linkBttn {
+        font-size: 1em;
+        padding: 8px 16px;
+        margin: 5px;
+        width: auto;
+        max-width: 280px;
+    }
+    
+    /* Sidebar button improvements for mobile */
+    .clickableTextButton {
+        font-size: 13px;
+        padding: 6px 10px;
+        margin: 3px;
+        border-radius: 8px;
+        min-width: 65px;
+        text-align: center;
+        background-color: rgba(255, 255, 255, 0.1);
+        transition: all 0.2s ease;
+    }
+    
+    .clickableTextButton:hover {
+        background-color: rgba(255, 255, 255, 0.2);
+    }
+    
+    /* List items */
+    li {
+        font-size: 1em;
+        text-align: left;
+        margin: 5px 0;
+    }
+    
+    /* Main content sections */
+    .mainContent {
+        width: 95%;
+        flex-direction: column;
+        padding: 5px;
+    }
+    
+    .mainP, .mainPcentered {
+        font-size: 1.1em;
+        padding: 0 5px;
+    }
+    
+    /* Box elements */
+    .box, .list, .list-can, .list-try, .list-cannot {
+        width: 95%;
+        margin: 10px auto;
+        padding: 15px 10px;
+    }
+    
+    /* Navigation elements */
+    .navbar {
+        flex-direction: column;
+        gap: 5px;
+        padding: 10px 5px;
+    }
+    
+    /* Back to top button */
+    .backtotop {
+        bottom: 15px;
+        right: 15px;
+        width: 50px;
+        height: 50px;
+        font-size: 0.8em;
+        padding: 5px;
+    }
+    
+    /* Images */
+    #waffpng {
+        width: 250px;
+        max-width: 90%;
+    }
+    
+    #logo {
+        width: 80px;
+    }
+}
+
+/* Extra small devices (phones in portrait) */
+@media (max-width: 480px) {
+    body {
+        font-size: 13px;
+    }
+    
+    .side-by-side {
+        width: 98%;
+        padding: 2px;
+    }
+    
+    .normal {
+        padding: 0 5px;
+    }
+    
+    .header h1 {
+        font-size: 1.5em;
+    }
+    
+    table {
+        font-size: 0.8em;
+    }
+    
+    th, td {
+        padding: 6px 2px;
+        font-size: 0.75em;
+    }
+    
+    .reallySmall {
+        font-size: 0.55em;
+    }
+    
+    button, .linkBttn {
+        font-size: 0.9em;
+        padding: 6px 12px;
+        max-width: 250px;
+    }
+    
+    .mainP, .mainPcentered {
+        font-size: 1em;
+    }
+    
+    li {
+        font-size: 0.9em;
+    }
+    
+    .floating-toggle {
+        top: 15px;
+        left: 15px;
+        font-size: 1em;
+        padding: 10px;
+        width: 45px;
+        height: 45px;
+    }
+    
+    .sidebar {
+        padding: 15px;
+    }
+    
+    .sidebar-header h2 {
+        font-size: 1.3em;
+    }
+    
+    .sidebar-close {
+        font-size: 1em;
+        padding: 8px;
+        width: 35px;
+        height: 35px;
+    }
+    
+    .sidebar-content {
+        gap: 12px;
+        padding-top: 15px;
+    }
+    
+    .clickableTextButton {
+        font-size: 13px;
+        padding: 8px 12px;
+        margin: 0;
+        border-radius: 8px;
+        text-align: center;
+        background-color: rgba(255, 255, 255, 0.1);
+        transition: all 0.2s ease;
+    }
+    
+    .clickableTextButton:hover {
+        background-color: rgba(255, 255, 255, 0.2);
+    }
+}
+
+/* Large screens - optional enhancement */
+@media (min-width: 1200px) {
+    .side-by-side {
+        width: 40%;
+    }
+    
+    .mainContent {
+        width: 40%;
+    }
 }
 

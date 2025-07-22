@@ -64,4 +64,58 @@ function scrollToTop() {
     });// For Chrome, Firefox, IE, and Opera
 }
 
+// Sidebar toggle functionality
+function toggleSidebar() {
+    const sidebar = document.getElementById('sidebar');
+    const floatingToggle = document.querySelector('.floating-toggle');
+    
+    if (sidebar.classList.contains('collapsed')) {
+        // Expand sidebar
+        sidebar.classList.remove('collapsed');
+        floatingToggle.style.display = 'none';
+    } else {
+        // Collapse sidebar
+        sidebar.classList.add('collapsed');
+        floatingToggle.style.display = 'block';
+    }
+}
+
+// Auto-collapse sidebar on mobile when page loads, keep expanded on desktop
+document.addEventListener('DOMContentLoaded', function() {
+    // Wait a bit for custom elements to load
+    setTimeout(function() {
+        const sidebar = document.getElementById('sidebar');
+        const floatingToggle = document.querySelector('.floating-toggle');
+        
+        if (sidebar && floatingToggle) {
+            // Check if we're on mobile (screen width <= 768px)
+            if (window.innerWidth <= 768) {
+                // Mobile: Start collapsed
+                sidebar.classList.add('collapsed');
+                floatingToggle.style.display = 'block';
+            } else {
+                // Desktop: Start expanded
+                sidebar.classList.remove('collapsed');
+                floatingToggle.style.display = 'none';
+            }
+        }
+    }, 100);
+    
+    // Also handle window resize events
+    window.addEventListener('resize', function() {
+        const sidebar = document.getElementById('sidebar');
+        const floatingToggle = document.querySelector('.floating-toggle');
+        
+        if (sidebar && floatingToggle) {
+            if (window.innerWidth > 768) {
+                // Switched to desktop: ensure expanded
+                sidebar.classList.remove('collapsed');
+                floatingToggle.style.display = 'none';
+            }
+            // Note: We don't auto-collapse when switching to mobile 
+            // in case user manually expanded it
+        }
+    });
+});
+
 
