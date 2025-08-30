@@ -1,0 +1,38 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" sizes="32x32" href="Images/favicon-32x.png">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://kit.fontawesome.com/b6242feb5b.js" crossorigin="anonymous"></script>
+    <script src="Js/javascript.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="Js/custom-elements.js"></script>
+    <title>Piss Filter</title>
+</head>
+<body>
+    <h1>Pee filterizer</h1>
+    <p>Basically, apparently because OpenAI's image training data is so yellow, all images generated with ChatGPT is piss colored. With this tool, now you can also give your images a piss filter too! You can adjust the tint to whatever color you like idc anymore.</p>
+
+    <h3>Settings</h3>
+    <label>Image </label><input type="file" id="imageInput" accept="image/*"> <br>
+    <label>Color </label><input type="color" id="colorInput" value="#d48600"> <br>
+    <label>Opacity</label><input type="range" id="opacityInput" value="0.5" min="0" max="1" step="0.1"> <br>
+    <label>Mode </label>
+    <select name="mode" id="modeSelect">
+        <option value="source-atop">source-atop</option>
+        <option value="multipy">multipy</option>
+        <option value="overlay">overlay</option>
+        <option value="color-dodge">color-dodge</option>
+    </select>
+    <br>
+    <button id="applyTintButton", onclick="applyTint()">Apply Tint</button>
+
+    <h3>Output</h3>
+    <div id="outputContainer"></div>
+    <br>
+    
+</body>
+</html>

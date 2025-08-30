@@ -119,3 +119,83 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
+//filterize
+
+function applyTint() {
+    //multiply a color onto the image
+    const imageInput = document.getElementById('imageInput');
+    const colorInput = document.getElementById('colorInput');
+    const outputContainer = document.getElementById('outputContainer');
+    const modeSelect = document.getElementById('modeSelect');
+    const opacityInput = document.getElementById('opacityInput');
+
+    if (imageInput.files.length === 0) {
+        alert('Please upload an image.');
+        return;
+    }
+
+    const file = imageInput.files[0];
+    const reader = new FileReader();
+
+    reader.onload = function(event) {
+        const img = new Image();
+        img.src = event.target.result;
+
+        img.onload = function() {
+            const canvas = document.createElement('canvas');
+            const ctx = canvas.getContext('2d');
+            canvas.width = img.width;
+            canvas.height = img.height;
+            ctx.drawImage(img, 0, 0);
+
+            // Apply color tint
+            const color = hexToRgb(colorInput.value);
+            ctx.globalCompositeOperation = modeSelect.value; // 'multiply', 'screen', etc.
+            ctx.globalAlpha = parseFloat(opacityInput.value); // Opacity from 0 to 1
+            ctx.fillStyle = `rgba(${color.r}, ${color.g}, ${color.b}, ${opacityInput.value})`;
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            // Show the tinted image
+            outputContainer.innerHTML = '';
+            outputContainer.appendChild(canvas);
+            
+            // Add download button
+            const downloadBtn = document.createElement('button');
+            downloadBtn.textContent = 'Download Image';
+            downloadBtn.style.marginTop = '10px';
+            downloadBtn.onclick = () => downloadCanvas(canvas);
+            outputContainer.appendChild(downloadBtn);
+        };
+    };
+
+    reader.readAsDataURL(file);
+}
+
+function downloadCanvas(canvas, filename = 'filtered-image.png') {
+    // Create a download link
+    const link = document.createElement('a');
+    link.download = filename;
+    
+    // Convert canvas to blob and create object URL
+    canvas.toBlob(function(blob) {
+        const url = URL.createObjectURL(blob);
+        link.href = url;
+        
+        // Trigger download
+        document.body.appendChild(link);
+        link.click();
+        
+        // Clean up
+        document.body.removeChild(link);
+        URL.revokeObjectURL(url);
+    }, 'image/png');
+}
+
+function hexToRgb(hex) {
+    const bigint = parseInt(hex.slice(1), 16);
+    return {
+        r: (bigint >> 16) & 255,
+        g: (bigint >> 8) & 255,
+        b: bigint & 255
+    };
+}
