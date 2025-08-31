@@ -12,12 +12,12 @@ class Sidebar extends HTMLElement {
                     </button>
                 </div>
                 <div class="sidebar-content" id="sidebarContent">
-                    <button class="clickableTextButton" onclick="goToPage('index.html')">/index.html (home)</button>
-                    <button class="clickableTextButton" onclick="goToPage('about.html')">/about.html (about me)</button>
-                    <button class="clickableTextButton" onclick="goToPage('socials.html')">/socials.html (socials)</button>
-                    <button class="clickableTextButton" onclick="goToPage('comms.html')">/comms.html (comms TOS)</button>
-                    <button class="clickableTextButton" onclick="goToPage('prices.html')">/prices.html (comms prices)</button>
-                    <button class="clickableTextButton" onclick="goToPage('gallery.html')">/gallery.html (gallery)</button>
+                    <button class="clickableTextButton" onclick="goToPage('index')">/index.html (home)</button>
+                    <button class="clickableTextButton" onclick="goToPage('about')">/about.html (about me)</button>
+                    <button class="clickableTextButton" onclick="goToPage('socials')">/socials.html (socials)</button>
+                    <button class="clickableTextButton" onclick="goToPage('comms')">/comms.html (comms TOS)</button>
+                    <button class="clickableTextButton" onclick="goToPage('prices')">/prices.html (comms prices)</button>
+                    <button class="clickableTextButton" onclick="goToPage('gallery')">/gallery.html (gallery)</button>
                 </div>
             </div>
         `;
