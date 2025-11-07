@@ -13,27 +13,30 @@
     <title>Piss Filter</title>
 </head>
 <body>
-    <custom-sidebar></custom-sidebar>
-    <h1>Pee filterizer</h1>
-    <p>Basically, apparently because OpenAI's image training data is so yellow all images generated with ChatGPT is piss colored. With this tool, now you can also give your images a piss filter too! You can adjust the tint to whatever color you like idc anymore.</p>
-
-    <h3>Settings</h3>
-    <label>Image </label><input type="file" id="imageInput" accept="image/*"> <br>
-    <label>Color </label><input type="color" id="colorInput" value="#d48600"> <br>
-    <label>Opacity</label><input type="range" id="opacityInput" value="0.5" min="0" max="1" step="0.1"> <br>
-    <label>Mode </label>
-    <select name="mode" id="modeSelect">
-        <option value="source-atop">source-atop</option>
-        <option value="multipy">multipy</option>
-        <option value="overlay">overlay</option>
-        <option value="color-dodge">color-dodge</option>
-    </select>
-    <br>
-    <button id="applyTintButton", onclick="applyTint()">Apply Tint</button>
-
-    <h3>Output</h3>
-    <div id="outputContainer"></div>
-    <br>
+    <div class="side-by-side">
+        <custom-sidebar></custom-sidebar>
+        <div class="main-content">
+            <h1>Pee filterizer</h1>
+            <p>Basically, apparently because OpenAI's image training data is so yellow all images generated with ChatGPT is piss colored. With this tool, now you can also give your images a piss filter too! You can adjust the tint to whatever color you like idc anymore.</p>
+            
+            <h3>Settings</h3>
+            <label>Image </label><input type="file" id="imageInput" accept="image/*"> <br>
+            <label>Color </label><input type="color" id="colorInput" value="#d48600"> <br>
+            <label>Opacity</label><input type="range" id="opacityInput" value="0.5" min="0" max="1" step="0.1"> <br>
+            <label>Mode </label>
+            <select name="mode" id="modeSelect">
+                <option value="source-atop">source-atop</option>
+                <option value="multipy">multipy</option>
+                <option value="overlay">overlay</option>
+                <option value="color-dodge">color-dodge</option>
+            </select>
+            <br>
+            <button id="applyTintButton", onclick="applyTint()">Apply Tint</button>
+        
+            <h3>Output</h3>
+            <div id="outputContainer"></div>
+            <br>
+    </div>
     
 </body>
 </html>

@@ -82,6 +82,10 @@ li{
     font-weight: 500;
 }
 
+p{
+    width: 90%;
+}
+
 table{
     border-collapse: collapse;
     width: 70%;
@@ -359,7 +363,7 @@ table{
     width: 200%;
     height: 200%;
     background: url('Images/checker.png') repeat;
-    background-size: 40%;
+    background-size: 20%;
     animation: scrollBackground 10s linear infinite;
     z-index: -1;
     background-attachment: fixed;
