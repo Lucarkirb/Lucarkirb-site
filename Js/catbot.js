@@ -4,6 +4,8 @@ const sendButton = document.getElementById('send-button');
 const catbotMessage = document.getElementById('catbot-message');
 const userMessage = document.getElementById('user-message');
 
+const meows = ['meow', 'mrrp', 'purr', 'hiss', 'chirp', 'yowl', 'mew', 'mewl', 'miaow', 'mrrrow'];
+
 async function sendMessage() {
     const userText = userInput.value.trim();
     if (userText === '') return;
@@ -22,8 +24,12 @@ async function sendMessage() {
     chatBox.appendChild(newCatbotMessage);
 
     const aRandomAmountOfMeows = Math.floor(Math.random() * 10) + 1;
-    const responseString = 'Meow '.repeat(aRandomAmountOfMeows).trim();
-
+    let responseString = '';
+    for (let i = 0; i < aRandomAmountOfMeows; i++) {
+        const randomMeow = meows[Math.floor(Math.random() * meows.length)];
+        responseString += randomMeow + ' ';
+    }
+    responseString = responseString.trim() + ".";
     // think for a random amount of time between 1 and 3 seconds
     const thinkTime = Math.floor(Math.random() * 2000) + 1000;
     // use those braille characters for a rotating loading thingy
