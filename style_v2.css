@@ -1,0 +1,58 @@
+:root {
+    --ease-n-bounce: cubic-bezier(0.495, -0.050, 0.485, 1.275);
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('fonts/Montserrat-VariableFont_wght.ttf') format('truetype');
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+
+@keyframes floatIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Define the animation */
+@keyframes scrollBackground {
+    from {
+        transform: translate(0, 0);
+    }
+
+    to {
+        transform: translate(-50%, -50%);
+    }
+}
+
+/*elements*/
+
+body {
+    font-family: "Consolas", serif;
+}
+
+/*classes*/
+
+.header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    /* Adds space between the items */
+    text-align: left;
+    justify-content: left;
+    /* Options: flex-start, center, space-between, etc. */
+    height: 30px;
+}
+
+.linkBttn {
+    display: inline-block;
+    color: #000000;
+    text-decoration: none;
+}

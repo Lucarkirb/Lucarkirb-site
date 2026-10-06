@@ -1,0 +1,32 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CatGPT</title>
+    <link rel="stylesheet" href="catbotStyle.css">
+</head>
+<body>
+    <div class="top-bar">
+        <h1>CatGPT</h1>
+        <p>Your personal Catbot.</p>
+    </div>
+    <div class="chat-container" id="chat-box">
+        <div class="catbot-message hidden" id="catbot-message">
+            <p>Meow!</p>
+        </div>
+        <div class="user-message hidden" id="user-message">
+           <p>Whats the capital of france?</p> 
+        </div>
+    </div>
+    <div class="main-container">
+        <p class="model-chip">Tuna-Fish v6.2 MAX</p>
+        <div class="chat-input-container">
+            <textarea id="user-input" class="chat-input"
+                placeholder="Ask me anything. I know about a million things!"></textarea>
+            <button id="send-button">Send</button>
+        </div>
+    </div>
+
+    <script src="Js/catbot.js" defer></script>
+</body>
+</html>
