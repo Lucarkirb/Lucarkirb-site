@@ -41,13 +41,13 @@ function generateDisplay() {
 
 
 async function sendMessage() {
-    
+
     const userText = userInput.value.trim();
     if (userText === '') return;
     userInput.disabled = true;
     userInput.placeholder = 'Thinking...';
     animatrionState = "off";
-    animationState = "run";
+    animationState = "shimmer";
     const newUserMessage = userMessage.cloneNode(true);
     newUserMessage.classList.remove('hidden');
     newUserMessage.innerHTML = `${userText}`;
@@ -80,7 +80,7 @@ async function sendMessage() {
         newCatbotMessage.innerHTML = char + ' Pondering on that one...';
         await new Promise(resolve => setTimeout(resolve, 50));
     }
-    animationState = "shimmer";
+    animationState = "run";
     const repsonseSplit = responseString.split(' ');
     for (let i = 0; i < repsonseSplit.length; i++) {
         newCatbotMessage.innerHTML = repsonseSplit.slice(0, i + 1).join(' ') + '...';
@@ -93,6 +93,7 @@ async function sendMessage() {
     animationState = "rain";
 
 }
+
 
 async function matrixAnimationStates(delay = 20) {
     while (true) {
@@ -183,7 +184,7 @@ async function matrixAnimationStates(delay = 20) {
                 }
             }
             await new Promise(resolve => setTimeout(resolve, delay));
-            
+
         } else if (animationState === "off") {
             dots.forEach(dot => dot.classList.remove('dot-on'));
             await new Promise(resolve => setTimeout(resolve, 100));
