@@ -46,7 +46,8 @@ async function sendMessage() {
     if (userText === '') return;
     userInput.disabled = true;
     userInput.placeholder = 'Thinking...';
-    animationState = "shimmer";
+    animatrionState = "off";
+    animationState = "run";
     const newUserMessage = userMessage.cloneNode(true);
     newUserMessage.classList.remove('hidden');
     newUserMessage.innerHTML = `${userText}`;
@@ -61,7 +62,7 @@ async function sendMessage() {
     newCatbotMessage.classList.remove('hidden');
     chatBox.appendChild(newCatbotMessage);
 
-    const aRandomAmountOfMeows = Math.floor(Math.random() * 10) + 1;
+    const aRandomAmountOfMeows = Math.floor(Math.random() * 50) + 5;
     let responseString = '';
     for (let i = 0; i < aRandomAmountOfMeows; i++) {
         const randomMeow = meows[Math.floor(Math.random() * meows.length)];
@@ -79,12 +80,17 @@ async function sendMessage() {
         newCatbotMessage.innerHTML = char + ' Pondering on that one...';
         await new Promise(resolve => setTimeout(resolve, 50));
     }
-
-    newCatbotMessage.innerHTML =  "<p class='fade-in-ltr'>" + responseString + "</p>";
+    animationState = "shimmer";
+    const repsonseSplit = responseString.split(' ');
+    for (let i = 0; i < repsonseSplit.length; i++) {
+        newCatbotMessage.innerHTML = repsonseSplit.slice(0, i + 1).join(' ') + '...';
+        await new Promise(resolve => setTimeout(resolve, 100));
+    }
+    newCatbotMessage.innerHTML = "<p class='fade-in-ltr'>" + responseString + "</p>";
     userInput.disabled = false;
     userInput.placeholder = 'Ask me anything. I know about a million things!';
     userInput.focus();
-    animationState = "run";
+    animationState = "rain";
 
 }
 
@@ -135,6 +141,48 @@ async function matrixAnimationStates(delay = 20) {
                 }
                 await new Promise(resolve => setTimeout(resolve, delay));
             }
+        } else if (animationState === "rain") {
+            const itemSize = 2;
+            const gapSize = 1;
+            const unitSize = itemSize + gapSize; // 3px
+            const cols = Math.floor((dotmatrixDisplay.clientWidth + gapSize) / unitSize);
+            const rows = Math.floor((dotmatrixDisplay.clientHeight + gapSize) / unitSize);
+
+            // 1. Generate new raindrops at the top row (row 0)
+            const raindropCount = Math.floor(Math.random() * 10) + 1;
+            for (let i = 0; i < raindropCount; i++) {
+                if (animationState !== "rain") break;
+                const randomCol = Math.floor(Math.random() * cols);
+                const dot = dots[randomCol];
+                if (dot) {
+                    dot.classList.add('dot-on');
+                }
+            }
+
+            let cachedNextDots = [];
+
+            // 2. Iterate bottom-to-top so falling dots don't overwrite each other in a single tick
+            for (let row = rows - 1; row >= 0; row--) {
+                if (animationState !== "rain") break;
+                for (let col = 0; col < cols; col++) {
+                    const index = row * cols + col;
+                    const indexBelow = (row + 1) * cols + col;
+                    if (dots[index] && dots[index].classList.contains('dot-on')) {
+                        dots[index].classList.remove('dot-on');
+                        if (row + 1 < rows) {
+                            cachedNextDots.push(indexBelow);
+                        }
+                    }
+                }
+            }
+
+            // 3. Turn on the next position for falling drops
+            for (let i = 0; i < cachedNextDots.length; i++) {
+                if (dots[cachedNextDots[i]]) {
+                    dots[cachedNextDots[i]].classList.add('dot-on');
+                }
+            }
+            await new Promise(resolve => setTimeout(resolve, delay));
             
         } else if (animationState === "off") {
             dots.forEach(dot => dot.classList.remove('dot-on'));
@@ -146,5 +194,6 @@ sendButton.addEventListener('click', sendMessage);
 
 // Generate dots on load (run immediately since script is in body)
 generateDisplay();
-matrixAnimationStates(10);
-animationState = "run";
+
+matrixAnimationStates(50);
+animationState = "rain";
